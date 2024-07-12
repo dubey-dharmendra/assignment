@@ -49,7 +49,6 @@ exports.delete = async (req, res, next) => {
   try {
     const id = req.params.id;
     const deletItem = await Item.findByIdAndDelete(id);
-    console.log(deletItem);
     if (!deletItem) return res.status(409).json({ msg: "Item Deletion faild" });
     return res.status(200).json({ msg: "Item Deleted" });
   } catch (error) {
